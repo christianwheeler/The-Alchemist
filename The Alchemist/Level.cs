@@ -171,7 +171,7 @@ namespace The_Alchemist
                 platforms[1, 3] = new Platform(small, Collides.All, Size.Small, 870, gameHeight - 370);
                 platforms[1, 4] = new Platform(normalBroken, Collides.Top, Size.Large, 300, gameHeight - 470);
                 platforms[1, 5] = new Platform(normal, Collides.All, Size.Large, 0, gameHeight - 450);
-                platforms[1, 6] = new Platform(small, Collides.All, Size.Small, 850, gameHeight - 50);
+                platforms[1, 6] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 50);
 
                 exits[1] = new Rectangle(935, gameHeight - 370 - 50, 50, 50);
                 
@@ -258,25 +258,32 @@ namespace The_Alchemist
                 Texture2D normal = Content.Load<Texture2D>("Platforms/nigredo_ground");
                 Texture2D normalBroken = Content.Load<Texture2D>("Platforms/nigredo_ground_broken");
 
-                numberOfPlatforms[0] = 6;
-                platforms[0, 0] = new Platform(normal, Collides.All, Size.Large, 200, gameHeight - 100);
-                platforms[0, 1] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 250);
-                platforms[0, 2] = new Platform(small, Collides.All, Size.Small, 550, gameHeight - 200);
-                platforms[0, 3] = new Platform(smallBroken, Collides.Top, Size.Small, 400, gameHeight - 450);
-                platforms[0, 4] = new Platform(smallBroken, Collides.Top, Size.Small, 950, gameHeight - 400);
-                platforms[0, 5] = new Platform(small, Collides.All, Size.Small, 650, gameHeight - 450);
+                numberOfPlatforms[0] = 10;
+                platforms[0, 0] = new Platform(small, Collides.All, Size.Small, 20, gameHeight - 50);
+                platforms[0, 1] = new Platform(normal, Collides.All, Size.Large, 200, gameHeight - 50);
+                platforms[0, 2] = new Platform(small, Collides.All, Size.Small, 400, gameHeight - 120);
+                platforms[0, 3] = new Platform(normal, Collides.Top, Size.Large, 200, gameHeight - 250);
+                platforms[0, 4] = new Platform(normalBroken, Collides.Top, Size.Large, 700, gameHeight - 350);
+                platforms[0, 5] = new Platform(normalBroken, Collides.All, Size.Large, 530, gameHeight - 450);
+                platforms[0, 6] = new Platform(smallBroken, Collides.All, Size.Small, 400, gameHeight - 450);
+                platforms[0, 7] = new Platform(small, Collides.All, Size.Small, 900, gameHeight - 50);
+                platforms[0, 8] = new Platform(smallBroken, Collides.Top, Size.Small, 20, gameHeight - 350);
+                platforms[0, 9] = new Platform(smallBroken, Collides.Top, Size.Small, 200, gameHeight - 450);
 
-                exits[0] = new Rectangle(430, gameHeight - 450 - 46, 50, 50);
+                exits[0] = new Rectangle(900, gameHeight - 50 - 50, 50, 50);
 
-                numberOfPlatforms[1] = 6;      //   texture, Collision   , Size      , X, Y   
-                platforms[1, 0] = new Platform(normalBroken, Collides.Top, Size.Large, 0, gameHeight - 70);
-                platforms[1, 1] = new Platform(smallBroken, Collides.Top, Size.Small, 30, gameHeight - 220);
-                platforms[1, 2] = new Platform(normal, Collides.All, Size.Large, 320, gameHeight - 200);
-                platforms[1, 3] = new Platform(normalBroken, Collides.Top, Size.Large, 500, gameHeight - 400);
-                platforms[1, 4] = new Platform(normalBroken, Collides.Top, Size.Large, 200, gameHeight - 450);
-                platforms[1, 5] = new Platform(smallBroken, Collides.Top, Size.Small, 850, gameHeight - 470);
+                numberOfPlatforms[1] = 9;      //   texture, Collision   , Size      , X, Y   
+                platforms[1, 0] = new Platform(normal, Collides.Top, Size.Large, 200, gameHeight - 50);
+                platforms[1, 1] = new Platform(normalBroken, Collides.Top, Size.Large, 640, gameHeight - 420);
+                platforms[1, 2] = new Platform(smallBroken, Collides.All, Size.Small, 50, gameHeight - 250);
+                platforms[1, 3] = new Platform(normal, Collides.Top, Size.Large, 220, gameHeight - 430);
+                platforms[1, 4] = new Platform(smallBroken, Collides.Top, Size.Small, 550, gameHeight - 300);
+                platforms[1, 5] = new Platform(normal, Collides.Top, Size.Large, 400, gameHeight - 300);
+                platforms[1, 6] = new Platform(normalBroken, Collides.Top, Size.Large, 600, gameHeight - 50);
+                platforms[1, 7] = new Platform(small, Collides.Top, Size.Small, 750, gameHeight - 150);
+                platforms[1, 8] = new Platform(small, Collides.All, Size.Small, 900, gameHeight - 50);
 
-                exits[1] = new Rectangle(880, gameHeight - 470 - 50, 50, 50);
+                exits[1] = new Rectangle(60, gameHeight - 250 - 46, 50, 50);
 
                 //numberOfPlatforms[2] = 7;
                 //platforms[2, 0] = new Platform(small, Collides.All, Size.Small, 0, gameHeight - 50);
