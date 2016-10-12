@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace The_Alchemist
 {
-    // Ayyyy Lmao -Nicaedin
+    // What -Nicaedin
     class OldMan
     {
         private SpriteFont font;
