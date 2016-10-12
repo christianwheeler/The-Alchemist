@@ -47,6 +47,8 @@ namespace The_Alchemist
         private Vector2 velocity;                           //Velocity when player moves
         float floor;                                        //Current floor position 
 
+        //I'm adding in some comments here, to test GitHub commits/pushing
+
         public Player(Texture2D rT, Texture2D iT, Texture2D jT, int xC, int yC, Level l)
         {
             level = l;
