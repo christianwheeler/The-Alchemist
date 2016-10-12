@@ -128,6 +128,16 @@ namespace The_Alchemist
                             background = Content.Load<Texture2D>("Backgrounds/bgLevel2Part3");
                     }                 
                     break;
+                case 3:
+                    {
+                        if (part == 0)
+                            background = Content.Load<Texture2D>("Backgrounds/bgLevel1Part1");
+                        else if (part == 1)
+                            background = Content.Load<Texture2D>("Backgrounds/bgLevel1Part2");
+                        else if (part == 2)
+                            background = Content.Load<Texture2D>("Backgrounds/bgLevel1Part3");
+                    }
+                    break;
             }
 
             //Load the appropriate platforms
@@ -170,11 +180,11 @@ namespace The_Alchemist
                 platforms[2, 1] = new Platform(normalBroken, Collides.Top, Size.Large, 0, gameHeight - 180);
                 platforms[2, 2] = new Platform(small, Collides.All, Size.Small, 200, gameHeight - 420);
                 platforms[2, 3] = new Platform(normal, Collides.All, Size.Large, 450, gameHeight - 500);
-                platforms[2, 4] = new Platform(small, Collides.All, Size.Small, 800, gameHeight - 450);
+                platforms[2, 4] = new Platform(smallBroken, Collides.All, Size.Small, 800, gameHeight - 400);
                 platforms[2, 5] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 250);
                 platforms[2, 6] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 380);
 
-                exits[2] = new Rectangle(850, gameHeight - 450 - 50, 50, 50);
+                exits[2] = new Rectangle(850, gameHeight - 400 - 50, 50, 50);
 
                   
             }
@@ -188,10 +198,10 @@ namespace The_Alchemist
 
                 numberOfPlatforms[0] = 6;
                 platforms[0, 0] = new Platform(normal, Collides.All, Size.Large, 200, gameHeight - 100);
-                platforms[0, 1] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 150);
+                platforms[0, 1] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 250);
                 platforms[0, 2] = new Platform(small, Collides.All, Size.Small, 550, gameHeight - 200);
                 platforms[0, 3] = new Platform(smallBroken, Collides.Top, Size.Small, 400, gameHeight - 450);
-                platforms[0, 4] = new Platform(smallBroken, Collides.Top, Size.Small, 950, gameHeight - 350);
+                platforms[0, 4] = new Platform(smallBroken, Collides.Top, Size.Small, 950, gameHeight - 400);
                 platforms[0, 5] = new Platform(small, Collides.All, Size.Small, 650, gameHeight - 450);
 
                 exits[0] = new Rectangle(430, gameHeight - 450 - 46, 50, 50);
@@ -224,21 +234,61 @@ namespace The_Alchemist
 
                 exits[1] = new Rectangle(880, gameHeight - 470 - 50, 50, 50);
                 
-                numberOfPlatforms[2] = 7;
-                platforms[2, 0] = new Platform(small, Collides.All, Size.Small, 0, gameHeight - 50);
-                platforms[2, 1] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 250);
-                platforms[2, 2] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 450);
-                platforms[2, 3] = new Platform(normal, Collides.All, Size.Large, 160, gameHeight - 350);
-                //platforms[2, 4] = new Platform(normal, Collides.All, Size.Large, 400, gameHeight - 250);
-                platforms[2, 4] = new Platform(normal, Collides.All, Size.Large, 600, gameHeight - 150);
-              //  platforms[2, 6] = new Platform(normalBroken, Collides.Top, Size.Large, 1000, gameHeight - 250);
-            //    platforms[2, 7] = new Platform(smallBroken, Collides.Top, Size.Small, 1000, gameHeight - 450);
-               // platforms[2, 8] = new Platform(small, Collides.All, Size.Small, 950, gameHeight - 600);
-                platforms[2, 5] = new Platform(small, Collides.All, Size.Small, 520, gameHeight - 360);
-                platforms[2, 6] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 400);
+            //    numberOfPlatforms[2] = 7;
+            //    platforms[2, 0] = new Platform(small, Collides.All, Size.Small, 0, gameHeight - 50);
+            //    platforms[2, 1] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 250);
+            //    platforms[2, 2] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 450);
+            //    platforms[2, 3] = new Platform(normal, Collides.All, Size.Large, 160, gameHeight - 350);
+            //    //platforms[2, 4] = new Platform(normal, Collides.All, Size.Large, 400, gameHeight - 250);
+            //    platforms[2, 4] = new Platform(normal, Collides.All, Size.Large, 600, gameHeight - 150);
+            //  //  platforms[2, 6] = new Platform(normalBroken, Collides.Top, Size.Large, 1000, gameHeight - 250);
+            ////    platforms[2, 7] = new Platform(smallBroken, Collides.Top, Size.Small, 1000, gameHeight - 450);
+            //   // platforms[2, 8] = new Platform(small, Collides.All, Size.Small, 950, gameHeight - 600);
+            //    platforms[2, 5] = new Platform(small, Collides.All, Size.Small, 520, gameHeight - 360);
+            //    platforms[2, 6] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 400);
 
-                exits[2] = new Rectangle(15, gameHeight - 50 - 50, 50, 50);
+            //    exits[2] = new Rectangle(15, gameHeight - 50 - 50, 50, 50);
                 
+            }
+
+            if (levelIndex == 3)
+            {
+                Texture2D small = Content.Load<Texture2D>("Platforms/nigredo_ground_small");
+                Texture2D smallBroken = Content.Load<Texture2D>("Platforms/nigredo_ground_small_broken");
+                Texture2D normal = Content.Load<Texture2D>("Platforms/nigredo_ground");
+                Texture2D normalBroken = Content.Load<Texture2D>("Platforms/nigredo_ground_broken");
+
+                numberOfPlatforms[0] = 6;
+                platforms[0, 0] = new Platform(normal, Collides.All, Size.Large, 200, gameHeight - 100);
+                platforms[0, 1] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 250);
+                platforms[0, 2] = new Platform(small, Collides.All, Size.Small, 550, gameHeight - 200);
+                platforms[0, 3] = new Platform(smallBroken, Collides.Top, Size.Small, 400, gameHeight - 450);
+                platforms[0, 4] = new Platform(smallBroken, Collides.Top, Size.Small, 950, gameHeight - 400);
+                platforms[0, 5] = new Platform(small, Collides.All, Size.Small, 650, gameHeight - 450);
+
+                exits[0] = new Rectangle(430, gameHeight - 450 - 46, 50, 50);
+
+                numberOfPlatforms[1] = 6;      //   texture, Collision   , Size      , X, Y   
+                platforms[1, 0] = new Platform(normalBroken, Collides.Top, Size.Large, 0, gameHeight - 70);
+                platforms[1, 1] = new Platform(smallBroken, Collides.Top, Size.Small, 30, gameHeight - 220);
+                platforms[1, 2] = new Platform(normal, Collides.All, Size.Large, 320, gameHeight - 200);
+                platforms[1, 3] = new Platform(normalBroken, Collides.Top, Size.Large, 500, gameHeight - 400);
+                platforms[1, 4] = new Platform(normalBroken, Collides.Top, Size.Large, 200, gameHeight - 450);
+                platforms[1, 5] = new Platform(smallBroken, Collides.Top, Size.Small, 850, gameHeight - 470);
+
+                exits[1] = new Rectangle(880, gameHeight - 470 - 50, 50, 50);
+
+                //numberOfPlatforms[2] = 7;
+                //platforms[2, 0] = new Platform(small, Collides.All, Size.Small, 0, gameHeight - 50);
+                //platforms[2, 1] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 250);
+                //platforms[2, 2] = new Platform(smallBroken, Collides.Top, Size.Small, 0, gameHeight - 450);
+                //platforms[2, 3] = new Platform(normal, Collides.All, Size.Large, 160, gameHeight - 350);
+                //platforms[2, 4] = new Platform(normal, Collides.All, Size.Large, 600, gameHeight - 150);
+                //platforms[2, 5] = new Platform(small, Collides.All, Size.Small, 520, gameHeight - 360);
+                //platforms[2, 6] = new Platform(normal, Collides.All, Size.Large, 800, gameHeight - 400);
+
+                //exits[2] = new Rectangle(15, gameHeight - 50 - 50, 50, 50);
+
             }
         }
 
@@ -308,10 +358,25 @@ namespace The_Alchemist
                         break;
                     case 1: player = new Player(run, idle, jump, 340, gameHeight - 200, this);
                         break;
-                    case 2: player = new Player(run, idle, jump, 340, gameHeight - 200, this);
-                        break;
+                   // case 2: player = new Player(run, idle, jump, 340, gameHeight - 200, this);
+                    //    break;
                 }
-            }           
+            }
+
+            if (levelIndex == 3)
+            {
+                switch (part)
+                {
+                    case 0:
+                        player = new Player(run, idle, jump, 340, gameHeight - 230, this);
+                        break;
+                    case 1:
+                        player = new Player(run, idle, jump, 340, gameHeight - 200, this);
+                        break;
+                        // case 2: player = new Player(run, idle, jump, 340, gameHeight - 200, this);
+                        //    break;
+                }
+            }
 
         }
 
@@ -373,19 +438,38 @@ namespace The_Alchemist
             if (exitWait < 0.0f)
             {
                 exitWait = 0.0f;
-                
-                if (part + 1 == 3)
+            //provides the level and part counters
+                if (levelIndex == 1)
                 {
-                    part = 0;
-                    levelIndex++;
+                    if (part + 1 == 3)
+                    {
+                        part = 0;
+                        levelIndex++;
 
-                    Dispose();
-                    LoadPlatforms();
-                    LoadEnemies();
-                    LoadPlayer();
+                        Dispose();
+                        LoadPlatforms();
+                        LoadEnemies();
+                        LoadPlayer();
+                    }
+                    else
+                        part++;
+
                 }
-                else
-                    part++;
+                else {
+
+                    if (part + 1 == 2)
+                    {
+                        part = 0;
+                        levelIndex++;
+
+                        Dispose();
+                        LoadPlatforms();
+                        LoadEnemies();
+                        LoadPlayer();
+                    }
+                    else
+                        part++;
+                }
             }
         }
 

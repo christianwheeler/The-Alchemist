@@ -348,6 +348,8 @@ namespace The_Alchemist
             {
                 if (Bounds.Intersects(level.Enemies[level.Part, 0].Bounds))
                     return true;
+                else if (Bounds.Top > level.gameHeight)
+                    return true;
                 else
                     return false;
             }
