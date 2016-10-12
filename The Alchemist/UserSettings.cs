@@ -116,7 +116,7 @@ namespace The_Alchemist
 
             catch(Exception)
             {
-                return 1;                                                                                                   // If something went wrong return the default value of 1
+                return 0;                                                                                                   // If something went wrong return the default value of 0
             }
         }
 
