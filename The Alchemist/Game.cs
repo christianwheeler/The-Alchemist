@@ -53,6 +53,7 @@ namespace The_Alchemist
             graphics.PreferredBackBufferHeight = 576;
             graphics.PreferredBackBufferWidth = 1024;
 
+            User user = new User();
         }
 
         //Load services and non-graphic content

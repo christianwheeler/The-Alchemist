@@ -12,10 +12,10 @@ namespace The_Alchemist
      *  As a result it will get and set the various user settings
      *  
      */
-    class UserSettings
+    public class UserSettings
     {
-        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         *                         Attributes
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *
+         *                         Attributes                              *
          * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         private const string userSettingsFilename = "user-settings.xml";                                                        // The xml file to read user settings from and write settings to
 
@@ -24,14 +24,14 @@ namespace The_Alchemist
         private int mHighestLevel;                                                                                              // The highest level the user has achieved    
         private string mUsername;                                                                                               // The user's username        
 
-        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         *                          Functions
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *
+         *                          Functions                              *
          * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
         /*
          * Initialises object by reading from the user settings xml file
          */
-        UserSettings()
+        public UserSettings()
         {
             readSettings();
         }
@@ -157,13 +157,13 @@ namespace The_Alchemist
             userSettingsDocument.SelectSingleNode("user-settings/character")
                 .InnerText = placeCharacterType(UserCharacterType);
             userSettingsDocument.SelectSingleNode("user-settings/current-level").InnerText = CurrentLevel.ToString();
-            userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText = CurrentLevel.ToString();
+            userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText = HighestLevel.ToString();
 
             userSettingsDocument.Save(userSettingsFilename);                                                                // Save the user settings to the actual xml document
         }
 
-        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         *                        Properties
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *
+         *                        Properties                               *
          * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         public CharacterType UserCharacterType
         {
