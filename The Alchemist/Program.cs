@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace The_Alchemist
 {
@@ -14,8 +17,9 @@ namespace The_Alchemist
         [STAThread]
         static void Main()
         {
-            using (var game = new AlchemistGame())
-                game.Run();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmMainMenu());
         }
     }
 #endif
