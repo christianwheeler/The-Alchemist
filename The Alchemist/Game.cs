@@ -52,7 +52,6 @@ namespace The_Alchemist
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferHeight = 576;
             graphics.PreferredBackBufferWidth = 1024;
-
         }
 
         //Load services and non-graphic content
