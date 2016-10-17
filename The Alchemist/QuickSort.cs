@@ -71,7 +71,7 @@ namespace The_Alchemist
                         break;
 
                     case UserList.SortBy.HighestLevelDateAsc:
-                        if (users[frontierIndex].UserHighestScore.HighestLevelDate > pivot.UserHighestScore.HighestLevelDate)   // If the pivot has a greater highest level, then swap
+                        if (users[frontierIndex].UserHighestScore.HighestLevelDate < pivot.UserHighestScore.HighestLevelDate)   // If the pivot has a greater highest level, then swap
                         {
                             swap(users, frontierIndex, partitionIndex);
                             partitionIndex++;
