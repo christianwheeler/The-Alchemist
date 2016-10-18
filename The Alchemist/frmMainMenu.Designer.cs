@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnHighScores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegister
@@ -129,6 +130,16 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Welcome to The Alchemist";
             // 
+            // btnHighScores
+            // 
+            this.btnHighScores.Location = new System.Drawing.Point(537, 201);
+            this.btnHighScores.Name = "btnHighScores";
+            this.btnHighScores.Size = new System.Drawing.Size(97, 31);
+            this.btnHighScores.TabIndex = 22;
+            this.btnHighScores.Text = "High Scores";
+            this.btnHighScores.UseVisualStyleBackColor = true;
+            this.btnHighScores.Click += new System.EventHandler(this.btnHighScores_Click);
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +147,7 @@
             this.BackgroundImage = global::The_Alchemist.Properties.Resources.mainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(658, 280);
+            this.Controls.Add(this.btnHighScores);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLogin);
@@ -163,5 +175,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHighScores;
     }
 }

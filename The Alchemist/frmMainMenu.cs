@@ -62,5 +62,11 @@ namespace The_Alchemist
             frmRegister f = new frmRegister();
             f.ShowDialog();
         }
+
+        private void btnHighScores_Click(object sender, EventArgs e)
+        {
+            frmHighscores f = new frmHighscores();
+            f.ShowDialog();
+        }
     }
 }

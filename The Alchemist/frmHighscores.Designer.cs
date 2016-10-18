@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvHighscores = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSortHighestLevel = new System.Windows.Forms.Button();
-            this.btnSortDate = new System.Windows.Forms.Button();
-            this.btnSortName = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnReport = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSortName = new System.Windows.Forms.Button();
+            this.btnSortDate = new System.Windows.Forms.Button();
+            this.btnSortHighestLevel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHighscores)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,24 +54,24 @@
             this.dgvHighscores.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvHighscores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHighscores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHighscores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHighscores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHighscores.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHighscores.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHighscores.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHighscores.EnableHeadersVisualStyles = false;
             this.dgvHighscores.Location = new System.Drawing.Point(12, 115);
             this.dgvHighscores.Name = "dgvHighscores";
@@ -97,45 +97,25 @@
             this.panel1.Size = new System.Drawing.Size(965, 584);
             this.panel1.TabIndex = 1;
             // 
-            // btnSortHighestLevel
+            // label3
             // 
-            this.btnSortHighestLevel.Location = new System.Drawing.Point(698, 115);
-            this.btnSortHighestLevel.Name = "btnSortHighestLevel";
-            this.btnSortHighestLevel.Size = new System.Drawing.Size(258, 52);
-            this.btnSortHighestLevel.TabIndex = 1;
-            this.btnSortHighestLevel.Text = "Highest Level ▲";
-            this.btnSortHighestLevel.UseVisualStyleBackColor = true;
-            this.btnSortHighestLevel.Click += new System.EventHandler(this.btnSortHighestLevel_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Viner Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(210, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(265, 78);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Highscores";
             // 
-            // btnSortDate
+            // btnReport
             // 
-            this.btnSortDate.Location = new System.Drawing.Point(698, 187);
-            this.btnSortDate.Name = "btnSortDate";
-            this.btnSortDate.Size = new System.Drawing.Size(258, 52);
-            this.btnSortDate.TabIndex = 2;
-            this.btnSortDate.Text = "Date ▼";
-            this.btnSortDate.UseVisualStyleBackColor = true;
-            this.btnSortDate.Click += new System.EventHandler(this.btnSortDate_Click);
-            // 
-            // btnSortName
-            // 
-            this.btnSortName.Location = new System.Drawing.Point(698, 258);
-            this.btnSortName.Name = "btnSortName";
-            this.btnSortName.Size = new System.Drawing.Size(258, 52);
-            this.btnSortName.TabIndex = 3;
-            this.btnSortName.Text = "Name ▼";
-            this.btnSortName.UseVisualStyleBackColor = true;
-            this.btnSortName.Click += new System.EventHandler(this.btnSortName_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(777, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Sorty By:";
+            this.btnReport.Location = new System.Drawing.Point(698, 471);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(258, 52);
+            this.btnReport.TabIndex = 6;
+            this.btnReport.Text = "Highscores";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // label2
             // 
@@ -147,24 +127,45 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Report:";
             // 
-            // btnReport
+            // label1
             // 
-            this.btnReport.Location = new System.Drawing.Point(698, 471);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(258, 52);
-            this.btnReport.TabIndex = 6;
-            this.btnReport.Text = "Highscores";
-            this.btnReport.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(777, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Sorty By:";
             // 
-            // label3
+            // btnSortName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Viner Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(210, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(265, 78);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Highscores";
+            this.btnSortName.Location = new System.Drawing.Point(698, 258);
+            this.btnSortName.Name = "btnSortName";
+            this.btnSortName.Size = new System.Drawing.Size(258, 52);
+            this.btnSortName.TabIndex = 3;
+            this.btnSortName.Text = "Name ▼";
+            this.btnSortName.UseVisualStyleBackColor = true;
+            this.btnSortName.Click += new System.EventHandler(this.btnSortName_Click);
+            // 
+            // btnSortDate
+            // 
+            this.btnSortDate.Location = new System.Drawing.Point(698, 187);
+            this.btnSortDate.Name = "btnSortDate";
+            this.btnSortDate.Size = new System.Drawing.Size(258, 52);
+            this.btnSortDate.TabIndex = 2;
+            this.btnSortDate.Text = "Date ▼";
+            this.btnSortDate.UseVisualStyleBackColor = true;
+            this.btnSortDate.Click += new System.EventHandler(this.btnSortDate_Click);
+            // 
+            // btnSortHighestLevel
+            // 
+            this.btnSortHighestLevel.Location = new System.Drawing.Point(698, 115);
+            this.btnSortHighestLevel.Name = "btnSortHighestLevel";
+            this.btnSortHighestLevel.Size = new System.Drawing.Size(258, 52);
+            this.btnSortHighestLevel.TabIndex = 1;
+            this.btnSortHighestLevel.Text = "Highest Level ▲";
+            this.btnSortHighestLevel.UseVisualStyleBackColor = true;
+            this.btnSortHighestLevel.Click += new System.EventHandler(this.btnSortHighestLevel_Click);
             // 
             // frmHighscores
             // 

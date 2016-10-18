@@ -213,5 +213,11 @@ namespace The_Alchemist
 
             reinitialiseHighscores();
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReport f = new frmReport();
+            f.ShowDialog();
+        }
     }
 }
