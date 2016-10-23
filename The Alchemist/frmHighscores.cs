@@ -17,6 +17,11 @@ namespace The_Alchemist
         public frmHighscores()
         {
             InitializeComponent();
+
+            if (Globals.userSettings.UserTheme == Theme.Fire)                                                                              // Change the background image to fit theme if neccessary
+            {
+                this.BackgroundImage = Properties.Resources.mainMenu1;
+            }
         }
 
         private void frmHighscores_Load(object sender, EventArgs e)
@@ -77,7 +82,7 @@ namespace The_Alchemist
                             userHighestLevel = reader.GetInt32(3);
                             userHighestLevelDate = reader.GetDateTime(4);
 
-                            highscoreInfo = new User.UserHighestScoreInfo();                                                               // Create highscore info struct to hold inofrmation to user's highscore
+                            highscoreInfo = new User.UserHighestScoreInfo();                                                                // Create highscore info struct to hold inofrmation to user's highscore
                             highscoreInfo.HighestLevel = userHighestLevel;
                             highscoreInfo.HighestLevelDate = userHighestLevelDate;
 

@@ -100,6 +100,7 @@
       <DependentUpon>rptHighScores.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Theme.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserList.cs" />
     <Compile Include="UserSettings.cs" />
@@ -135,10 +136,8 @@
       <DependentUpon>ALCHEMISTDataSet.xsd</DependentUpon>
     </None>
     <None Include="Content\Backgrounds\mainMenu.jpg" />
+    <None Include="Content\Backgrounds\mainMenu1.jpg" />
     <Content Include="Icon.ico" />
-    <Content Include="user-settings.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
