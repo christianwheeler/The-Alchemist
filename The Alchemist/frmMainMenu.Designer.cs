@@ -130,6 +130,7 @@
             this.label1.Size = new System.Drawing.Size(446, 57);
             this.label1.TabIndex = 12;
             this.label1.Text = "Welcome to The Alchemist";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnHighScores
             // 
@@ -171,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmMainMenu";
             this.Text = "frmMainMenu";
+            this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

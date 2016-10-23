@@ -92,5 +92,15 @@ namespace The_Alchemist
                 Globals.userSettings.UserTheme = Theme.Fire;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
