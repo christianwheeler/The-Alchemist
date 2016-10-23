@@ -43,5 +43,10 @@ namespace The_Alchemist
                 MessageBox.Show(err.Message);
             }
         }
+
+        private void frmRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

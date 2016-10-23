@@ -109,6 +109,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmRegister";
             this.Text = "frmRegister";
+            this.Load += new System.EventHandler(this.frmRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

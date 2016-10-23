@@ -46,8 +46,10 @@ namespace The_Alchemist
                     Globals.loggedInUser = loggedInUser;
 
                     this.Hide();
-                    using (var game = new AlchemistGame())
-                        game.Run();
+                    //Jump to character selection screen
+                    characterSelection cs = new characterSelection();
+                    cs.ShowDialog();
+                    
                 }
                 else
                 {

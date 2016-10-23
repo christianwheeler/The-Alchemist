@@ -56,7 +56,7 @@ namespace The_Alchemist
 
             Username = userSettingsDocument.SelectSingleNode("user-settings/username").InnerText;
             UserCharacterType =  getCharacterType(userSettingsDocument.SelectSingleNode("user-settings/character").InnerText);
-            UserTheme = getTheme(userSettingsDocument.SelectSingleNode("user-settings/user-theme").InnerText);
+            UserTheme = getTheme(userSettingsDocument.SelectSingleNode("user-settings/theme").InnerText);
             CurrentLevel = getLevel(userSettingsDocument.SelectSingleNode("user-settings/current-level").InnerText);
             HighestLevel = getLevel(userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText);
 
@@ -169,15 +169,14 @@ namespace The_Alchemist
          * Writes the settings currently in the object out to the xml file
          * specified in the userSettingsFilename string.
          */
-        private void writeSettings()
+        public void writeSettings()
         {
             XmlDocument userSettingsDocument = new XmlDocument();                                                           // Create new xml document object
             userSettingsDocument.Load(userSettingsFilename);                                                                // Load the document based on userSettingsFilename string
 
             userSettingsDocument.SelectSingleNode("user-settings/username").InnerText = Username;
-            userSettingsDocument.SelectSingleNode("user-settings/character")
-                .InnerText = placeCharacterType(UserCharacterType);
-            userSettingsDocument.SelectSingleNode("user-settings/user-theme").InnerText = placeTheme(UserTheme);
+            userSettingsDocument.SelectSingleNode("user-settings/character").InnerText = placeCharacterType(UserCharacterType);
+            userSettingsDocument.SelectSingleNode("user-settings/theme").InnerText = placeTheme(UserTheme);
             userSettingsDocument.SelectSingleNode("user-settings/current-level").InnerText = CurrentLevel.ToString();
             userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText = HighestLevel.ToString();
 
