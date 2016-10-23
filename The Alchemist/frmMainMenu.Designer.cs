@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHighScores = new System.Windows.Forms.Button();
+            this.btnTheme = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegister
@@ -140,6 +141,16 @@
             this.btnHighScores.UseVisualStyleBackColor = true;
             this.btnHighScores.Click += new System.EventHandler(this.btnHighScores_Click);
             // 
+            // btnTheme
+            // 
+            this.btnTheme.Location = new System.Drawing.Point(537, 164);
+            this.btnTheme.Name = "btnTheme";
+            this.btnTheme.Size = new System.Drawing.Size(97, 31);
+            this.btnTheme.TabIndex = 23;
+            this.btnTheme.Text = "Change Theme";
+            this.btnTheme.UseVisualStyleBackColor = true;
+            this.btnTheme.Click += new System.EventHandler(this.btnTheme_Click);
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +158,7 @@
             this.BackgroundImage = global::The_Alchemist.Properties.Resources.mainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(658, 280);
+            this.Controls.Add(this.btnTheme);
             this.Controls.Add(this.btnHighScores);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label5);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnHighScores;
+        private System.Windows.Forms.Button btnTheme;
     }
 }

@@ -19,6 +19,11 @@ namespace The_Alchemist
         public frmMainMenu()
         {
             InitializeComponent();
+            
+            if (Globals.userSettings.UserTheme == Theme.Fire)
+            {
+                this.BackgroundImage = Properties.Resources.mainMenu1;
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -67,6 +72,23 @@ namespace The_Alchemist
         {
             frmHighscores f = new frmHighscores();
             f.ShowDialog();
+        }
+
+        private void btnTheme_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.mainMenu1;
+
+            if (Globals.userSettings.UserTheme == Theme.Fire)
+            {
+                this.BackgroundImage = Properties.Resources.mainMenu;
+                Globals.userSettings.UserTheme = Theme.Ice;
+            }
+
+            else if (Globals.userSettings.UserTheme == Theme.Ice)
+            {
+                this.BackgroundImage = Properties.Resources.mainMenu1;
+                Globals.userSettings.UserTheme = Theme.Fire;
+            }
         }
     }
 }

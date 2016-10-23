@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvHighscores = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,24 +54,24 @@
             this.dgvHighscores.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvHighscores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHighscores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHighscores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHighscores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvHighscores.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHighscores.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHighscores.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvHighscores.EnableHeadersVisualStyles = false;
             this.dgvHighscores.Location = new System.Drawing.Point(12, 115);
             this.dgvHighscores.Name = "dgvHighscores";
@@ -79,11 +79,14 @@
             this.dgvHighscores.RowHeadersVisible = false;
             this.dgvHighscores.RowTemplate.Height = 30;
             this.dgvHighscores.ShowEditingIcon = false;
-            this.dgvHighscores.Size = new System.Drawing.Size(661, 455);
+            this.dgvHighscores.Size = new System.Drawing.Size(643, 449);
             this.dgvHighscores.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.label2);
@@ -94,34 +97,38 @@
             this.panel1.Controls.Add(this.dgvHighscores);
             this.panel1.Location = new System.Drawing.Point(39, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(965, 584);
+            this.panel1.Size = new System.Drawing.Size(947, 578);
             this.panel1.TabIndex = 1;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Viner Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(210, 18);
+            this.label3.Location = new System.Drawing.Point(12, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(265, 78);
+            this.label3.Size = new System.Drawing.Size(643, 78);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Highscores";
+            this.label3.Text = "High Scores";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(698, 471);
+            this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReport.Location = new System.Drawing.Point(680, 471);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(258, 52);
             this.btnReport.TabIndex = 6;
-            this.btnReport.Text = "Highscores";
+            this.btnReport.Text = "High Scores";
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(777, 393);
+            this.label2.Location = new System.Drawing.Point(759, 393);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 25);
             this.label2.TabIndex = 5;
@@ -129,9 +136,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(777, 45);
+            this.label1.Location = new System.Drawing.Point(759, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 25);
             this.label1.TabIndex = 4;
@@ -139,7 +147,8 @@
             // 
             // btnSortName
             // 
-            this.btnSortName.Location = new System.Drawing.Point(698, 258);
+            this.btnSortName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSortName.Location = new System.Drawing.Point(680, 258);
             this.btnSortName.Name = "btnSortName";
             this.btnSortName.Size = new System.Drawing.Size(258, 52);
             this.btnSortName.TabIndex = 3;
@@ -149,7 +158,8 @@
             // 
             // btnSortDate
             // 
-            this.btnSortDate.Location = new System.Drawing.Point(698, 187);
+            this.btnSortDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSortDate.Location = new System.Drawing.Point(680, 187);
             this.btnSortDate.Name = "btnSortDate";
             this.btnSortDate.Size = new System.Drawing.Size(258, 52);
             this.btnSortDate.TabIndex = 2;
@@ -159,7 +169,8 @@
             // 
             // btnSortHighestLevel
             // 
-            this.btnSortHighestLevel.Location = new System.Drawing.Point(698, 115);
+            this.btnSortHighestLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSortHighestLevel.Location = new System.Drawing.Point(680, 115);
             this.btnSortHighestLevel.Name = "btnSortHighestLevel";
             this.btnSortHighestLevel.Size = new System.Drawing.Size(258, 52);
             this.btnSortHighestLevel.TabIndex = 1;
@@ -172,8 +183,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::The_Alchemist.Properties.Resources.mainMenu;
-            this.ClientSize = new System.Drawing.Size(1052, 657);
+            this.ClientSize = new System.Drawing.Size(1034, 651);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(1050, 690);
             this.Name = "frmHighscores";
             this.Text = "Highscores";
             this.Load += new System.EventHandler(this.frmHighscores_Load);

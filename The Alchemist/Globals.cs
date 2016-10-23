@@ -9,5 +9,6 @@ namespace The_Alchemist
     {
         public static User loggedInUser = null;
         public static string DBConn = "Data Source=localhost;Initial Catalog=ALCHEMIST;Integrated Security=True";
+        public static UserSettings userSettings = new UserSettings();
     }
 }

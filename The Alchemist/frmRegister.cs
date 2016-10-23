@@ -18,6 +18,11 @@ namespace The_Alchemist
         public frmRegister()
         {
             InitializeComponent();
+
+            if (Globals.userSettings.UserTheme == Theme.Fire)
+            {
+                this.BackgroundImage = Properties.Resources.mainMenu1;
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
