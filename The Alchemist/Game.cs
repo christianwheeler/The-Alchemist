@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace The_Alchemist
 {
@@ -43,6 +45,7 @@ namespace The_Alchemist
         private GameState gameState;
         private bool loadGame;
         private bool ded = false;
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
         public AlchemistGame()
         {
@@ -62,7 +65,16 @@ namespace The_Alchemist
             mouseState = Mouse.GetState();
             
             IsMouseVisible = true;
-            gameState = GameState.StartMenu;
+
+            // This starts game when quest begins
+            gameState = GameState.Playing;
+            loadGame = true;
+            IsMouseVisible = false;
+            ded = false;
+
+            // Play music
+            player.SoundLocation = "backgroundMusic.wav";
+            player.PlayLooping();
 
             base.Initialize();  //Initializes related components
         }
@@ -129,7 +141,7 @@ namespace The_Alchemist
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
                 Exit();
 
             keyboardState = Keyboard.GetState();
@@ -139,7 +151,7 @@ namespace The_Alchemist
             Rectangle click = new Rectangle(mouseState.X,mouseState.Y,10,10);
 
             //check the start menu
-            if (previousMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+            if (previousMouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && mouseState.LeftButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
             {
                 if (gameState == GameState.StartMenu)
                 {
@@ -167,9 +179,11 @@ namespace The_Alchemist
                 
                 if (level.GameOver)
                 {
+                    player.Stop();
                     gameState = GameState.StartMenu;
                     IsMouseVisible = true;
-                    ded = true;                    
+                    ded = true;
+                    updateHighScore();
                 }
             }
 
@@ -203,12 +217,73 @@ namespace The_Alchemist
     
             if (ded)
             {
-                spriteBatch.DrawString(fontLarge, "Lol u ded! #noob", new Vector2(320, 0), Color.WhiteSmoke);
+                this.Exit();
+                frmStartGame frm = new frmStartGame(true);
+                frm.ShowDialog();
+                
             }
                       
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+        private void updateHighScore()
+        {
+            SqlConnection conn = new SqlConnection(Globals.DBConn);
+            SqlDataReader reader;
+            bool highScore = false;
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT MAX(HIGHEST_LEVEL) AS 'HIGHEST_LEVEL' FROM PLAYER");
+                cmd.Connection = conn;
+                conn.Open();    // Open connection
+                reader = cmd.ExecuteReader();   // Read all data into the reader
+
+                if (reader.Read())
+                {
+                    if (level.Index > Convert.ToInt32(reader["HIGHEST_LEVEL"]))
+                    {
+                        highScore = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+                reader.Close();
+                conn.Close();
+
+                if (highScore)
+                {
+                    try
+                    {
+                        // Update high score in database
+                        SqlCommand cmd2 = new SqlCommand("UPDATE PLAYER SET HIGHEST_LEVEL = '" + level.Index + "' WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
+                        cmd2.Connection = conn;
+                        conn.Open();    // Open connection
+                        int rows = cmd2.ExecuteNonQuery();
+                        conn.Close();
+
+                        // Update high score level date 
+                        SqlCommand cmd3 = new SqlCommand("UPDATE PLAYER SET HIGHEST_LEVEL_DATE = '" + DateTime.Now + "' WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
+                        cmd3.Connection = conn;
+                        conn.Open();    // Open connection
+                        int rows2 = cmd3.ExecuteNonQuery();
+                        conn.Close();
+
+                        MessageBox.Show("Congratulations! New High Score!");
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message);
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
     }
 }

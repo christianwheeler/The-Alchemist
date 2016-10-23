@@ -85,6 +85,7 @@
             this.Controls.Add(this.button1);
             this.Name = "characterSelection";
             this.Text = "characterSelection";
+            this.Load += new System.EventHandler(this.characterSelection_Load);
             this.ResumeLayout(false);
 
         }

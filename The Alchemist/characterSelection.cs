@@ -35,8 +35,9 @@ namespace The_Alchemist
             Globals.userSettings.UserCharacterType = CharacterType.Earth;
             Globals.userSettings.writeSettings();
             this.Hide();
-            using (var game = new AlchemistGame())
-                game.Run();
+
+            frmStartGame f = new frmStartGame(false);
+            f.ShowDialog();
         }
 
         //Fire
@@ -45,8 +46,8 @@ namespace The_Alchemist
             Globals.userSettings.UserCharacterType = CharacterType.Fire;
             Globals.userSettings.writeSettings();
             this.Hide();
-            using (var game = new AlchemistGame())
-                game.Run();
+            frmStartGame f = new frmStartGame(false);
+            f.ShowDialog();
         }
 
         //Water
@@ -55,8 +56,8 @@ namespace The_Alchemist
             Globals.userSettings.UserCharacterType = CharacterType.Water;
             Globals.userSettings.writeSettings();
             this.Hide();
-            using (var game = new AlchemistGame())
-                game.Run();
+            frmStartGame f = new frmStartGame(false);
+            f.ShowDialog();
         }
 
         //Wind
@@ -65,8 +66,13 @@ namespace The_Alchemist
             Globals.userSettings.UserCharacterType = CharacterType.Wind;
             Globals.userSettings.writeSettings();
             this.Hide();
-            using (var game = new AlchemistGame())
-                game.Run();
+            frmStartGame f = new frmStartGame(false);
+            f.ShowDialog();
+        }
+
+        private void characterSelection_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
