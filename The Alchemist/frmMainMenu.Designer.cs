@@ -146,7 +146,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmMainMenu";
-            this.Text = "frmMainMenu";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

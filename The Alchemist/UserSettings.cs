@@ -22,7 +22,8 @@ namespace The_Alchemist
         private CharacterType mUserCharacterType;                                                                               // The type of character according to user settings
         private int mCurrentLevel;                                                                                              // The level the user was last on before exitting
         private int mHighestLevel;                                                                                              // The highest level the user has achieved    
-        private string mUsername;                                                                                               // The user's username        
+        private string mUsername;                                                                                               // The user's username
+        private Theme mTheme;                                                                                                   // The theme as selected by the user        
 
         /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *
          *                          Functions                              *
@@ -62,6 +63,10 @@ namespace The_Alchemist
 
                     case "character":
                         UserCharacterType = getCharacterType(reader.Value);
+                        break;
+
+                    case "theme":
+                        UserTheme = getTheme(reader.Value);
                         break;
 
                     case "current-level":
@@ -114,9 +119,28 @@ namespace The_Alchemist
                 return Convert.ToInt32(levelString);                                                                        // Attempt to convert the string to int and return it
             }
 
-            catch(Exception)
+            catch (Exception)
             {
                 return 0;                                                                                                   // If something went wrong return the default value of 0
+            }
+        }
+
+        /*
+         * Determines the theme based on input string
+         * and returns a valid theme
+         */
+        private Theme getTheme(string theme)
+        {
+            switch (theme)
+            {
+                case "Ice":
+                    return Theme.Ice;
+
+                case "Fire":
+                    return Theme.Fire;
+
+                default:
+                    return Theme.Ice;                                                                                        // Return a default value if something went wrong
             }
         }
 
@@ -143,7 +167,25 @@ namespace The_Alchemist
                     return "Earth";                                                                                         // Return a default value if something went wrong
             }
         }
-        
+
+        /*
+         * Converts the theme passed as a parameter to a string.
+         */
+        private string placeTheme(Theme theme)
+        {
+            switch (theme)
+            {
+                case Theme.Ice:
+                    return "Ice";
+
+                case Theme.Fire:
+                    return "Fire";
+
+                default:
+                    return "Ice";                                                                                           // Return a default value if something went wrong
+            }
+        }
+
         /*
          * Writes the settings currently in the object out to the xml file
          * specified in the userSettingsFilename string.
@@ -156,6 +198,7 @@ namespace The_Alchemist
             userSettingsDocument.SelectSingleNode("user-settings/username").InnerText = Username;
             userSettingsDocument.SelectSingleNode("user-settings/character")
                 .InnerText = placeCharacterType(UserCharacterType);
+            userSettingsDocument.SelectSingleNode("user-settings/theme").InnerText = placeTheme(UserTheme);
             userSettingsDocument.SelectSingleNode("user-settings/current-level").InnerText = CurrentLevel.ToString();
             userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText = HighestLevel.ToString();
 
@@ -214,6 +257,19 @@ namespace The_Alchemist
             set
             {
                 mHighestLevel = value;
+            }
+        }
+
+        public Theme UserTheme
+        {
+            get
+            {
+                return mTheme;
+            }
+
+            set
+            {
+                mTheme = value;
             }
         }
     }

@@ -88,6 +88,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="QuickSort.cs" />
+    <Compile Include="Theme.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserList.cs" />
     <Compile Include="UserSettings.cs" />

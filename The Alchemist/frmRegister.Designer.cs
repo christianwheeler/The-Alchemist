@@ -108,7 +108,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "frmRegister";
-            this.Text = "frmRegister";
+            this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 
