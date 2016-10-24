@@ -3,27 +3,19 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using WMPLib;
+using TexturePackerLoader;
+using Microsoft.Xna.Framework.Content;
 
 namespace The_Alchemist
 {
     class Player
     {
-        private Animation idleAnimation;                    //Animation when standing still
-        private Animation runAnimation;                     //Animation when running
-        private Animation jumpAnimation;                    //Animation when jumping
-        private Animation animation;                        //Current Player Animation
-        private Texture2D idleTexture;                      //Player idle Image
-        private Texture2D runTexture;                       //Player run Image
-        private Texture2D jumpTexture;                      //Player jump Image
-
         private int x;                                      //Player X Coordinate
         private int y;                                      //Player Y Coordinate
         private Vector2 position;                           //Player Position
         private int width;                                  //Player Image Width
         private int height;                                 //Player Image Height
         private Rectangle bounds;                           //Player Bounds
-        private SpriteEffects direction;                    //Direction the Player faces
                
         private Level level;                                //Level the player is on
      
@@ -47,54 +39,86 @@ namespace The_Alchemist
         private bool isAlive;                               //Flag to check if Player is alive
         private Vector2 velocity;                           //Velocity when player moves
         float floor;                                        //Current floor position 
-        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
-        public Player(Texture2D rT, Texture2D iT, Texture2D jT, int xC, int yC, Level l)
+        //I'm adding in some comments here, to test GitHub commits/pushing 
+
+        //---------------------------- NEW ANIMA -------------------------------//
+        private ContentManager content;
+        private GraphicsDeviceManager graphics;
+        private AnimatorManager characterAnimator;
+
+        private SpriteBatch idleSpriteBatch;
+        private SpriteSheet idleSpriteSheet;
+        private SpriteRender idleSpriteRender;
+        private SpriteSheetLoader idleSpriteLoader;
+        private Animator idleAnimation;
+        private readonly TimeSpan idleTime = TimeSpan.FromSeconds(1f / 27f);
+    
+        Texture2D square;
+
+        private SpriteBatch runSpriteBatch;
+        private SpriteSheet runSpriteSheet;
+        private SpriteRender runSpriteRender;
+        private SpriteSheetLoader runSpriteLoader;
+        private Animator runAnimation;
+        private readonly TimeSpan runTime = TimeSpan.FromSeconds(1f / 65f);
+
+        private SpriteBatch jumpSpriteBatch;
+        private SpriteSheet jumpSpriteSheet;
+        private SpriteRender jumpSpriteRender;
+        private SpriteSheetLoader jumpSpriteLoader;
+        private Animator jumpAnimation;
+        private readonly TimeSpan jumpTim = TimeSpan.FromSeconds(1f / 15f);
+
+        public Player(int xC, int yC, Level l, IServiceProvider service, GraphicsDeviceManager g)
         {
-            level = l;
-            onGround = true;
-            isAlive = true;
-            velocity = Vector2.Zero;
-            floor = level.gameHeight;
+            content = new ContentManager(service, "Content");
+            graphics = g;
 
-            runTexture = rT;
-            idleTexture = iT;
-            jumpTexture = jT;
-           
             x = xC;
             y = yC;
             position = new Vector2(x, y);
 
-            width = 212;
-            height = 274;
+            width = Convert.ToInt16(246 * 0.33f);
+            height = Convert.ToInt16(545 * 0.33f);
             bounds = new Rectangle(x, y, width, height);
-            
-            idleAnimation = new Animation(idleTexture, 0.1f, true, width, height);
-            runAnimation = new Animation(runTexture, 0.1f, true, width, height);
-            jumpAnimation = new Animation(jumpTexture, 0.1f, true, width, height);
 
-            direction = SpriteEffects.FlipHorizontally;
-            animation = idleAnimation;
-            animation.Play();
-            
-            jumped = false;
-            jumpTime = 0.0f;
-            wplayer.URL = "jump.wav";
+            level = l;
+          
+            square = new Texture2D(graphics.GraphicsDevice, width, height);
+            square.CreateBorder(5, Color.Red);
+
+            this.idleSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            this.idleSpriteRender = new SpriteRender(this.idleSpriteBatch);
+            this.idleSpriteLoader = new SpriteSheetLoader(content);
+            this.idleSpriteSheet = idleSpriteLoader.Load("air_idle");
+
+            var idleSprite = TextureDefinitions.air_idle.sprite;
+            this.idleAnimation = new Animator(new Vector2(0, 0), idleTime, SpriteEffects.None, idleSprite);
+
+            this.runSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            this.runSpriteRender = new SpriteRender(this.runSpriteBatch);
+            this.runSpriteLoader = new SpriteSheetLoader(content);
+            this.runSpriteSheet = runSpriteLoader.Load("air_run");
+
+            var runSprite = TextureDefinitions.air_run.sprite;
+            this.runAnimation = new Animator(new Vector2(0, 0), runTime, SpriteEffects.None, runSprite);
+
+            this.jumpSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            this.jumpSpriteRender = new SpriteRender(this.jumpSpriteBatch);
+            this.jumpSpriteLoader = new SpriteSheetLoader(content);
+            this.jumpSpriteSheet = jumpSpriteLoader.Load("air_jump");
+
+            var jumpSprite = TextureDefinitions.air_jump.sprite;
+            this.jumpAnimation = new Animator(new Vector2(0, 0), jumpTim, SpriteEffects.None, jumpSprite);
+
+            this.characterAnimator = new AnimatorManager(idleSpriteSheet, position, idleAnimation); ;
         }
 
         //Calculates and returns the player's current bounds for collision purposes
         public Rectangle Bounds
         {
-            get
-            {
-                int left = (int)Math.Round(position.X);
-                int top = (int)Math.Round(position.Y - height*0.5f);
-
-                int sWidth = (int)Math.Round(width*0.5f);
-                int sHeight = (int)Math.Round(height * 0.5f);
-
-                return new Rectangle(left + 1, top, sWidth - 1, sHeight);
-            }
+            get { return new Rectangle((int) Math.Round(position.X), (int) Math.Round(position.Y) - height, width, height); }
         }
 
         //Returns if player is on the ground
@@ -137,24 +161,10 @@ namespace The_Alchemist
             get { return isAlive; }
         }
 
-        //Sets textures in case the player has levelled up
-        public void setTextures(Texture2D rT, Texture2D iT, Texture2D jT)
-        {
-            runTexture = rT;
-            idleTexture = iT;
-            jumpTexture = jT;
-
-            idleAnimation = new Animation(idleTexture, 0.1f, true, width, height);
-            runAnimation = new Animation(runTexture, 0.1f, true, width, height);
-            jumpAnimation = new Animation(jumpTexture, 0.1f, true, width, height);
-
-            animation = idleAnimation;
-            animation.Play();
-        }
-
         //This function is called each frame and updates the player as necessary
         public void Update(GameTime gameTime, KeyboardState keyboardState)
         {
+            this.characterAnimator.Update(gameTime);
             processInput(keyboardState, gameTime);
             jumping = false;
             movement = 0.0f;           
@@ -165,15 +175,28 @@ namespace The_Alchemist
             //Set the player direction according to the side the player is moving towards
             if (velocity.X > 0)
             {
-                direction = SpriteEffects.FlipHorizontally;
+                characterAnimator.CurrentSpriteEffects = SpriteEffects.None;
             }
             else if (velocity.X < 0)
             {
-                direction = SpriteEffects.None;
+                characterAnimator.CurrentSpriteEffects = SpriteEffects.FlipHorizontally;
             }
-    
+
             //Draw the currently set player animation
-            animation.Draw(gameTime, spriteBatch, position, direction);
+            //animation.Draw(gameTime, spriteBatch, position, direction);
+
+            this.idleSpriteBatch.Begin();
+            // Draw character on screen
+
+            spriteBatch.Draw(square, Bounds, Color.White);
+            Vector2 newPos = new Vector2(position.X + width / 2, position.Y - height / 2);
+
+            this.idleSpriteRender.Draw(
+                this.characterAnimator.CurrentSprite,
+                newPos,
+                Color.White, 0, 0.33f,
+                this.characterAnimator.CurrentSpriteEffects);
+            this.idleSpriteBatch.End();
         }
 
         //Gets input from the keyboard and updates the player as necessary
@@ -203,10 +226,11 @@ namespace The_Alchemist
             //Work out vertical velocity                 
             velocity.Y = MathHelper.Clamp(velocity.Y + gravity * elapsed, -maxSpeedY, maxSpeedY);       
             //Call the jump function so jumps can influence current velocity
-            velocity.Y = Jump(velocity.Y, gameTime);  
-            
+            velocity.Y = Jump(velocity.Y, gameTime);
+
             //Detect any possible collisions                          
             Collide();
+            //floor = level.gameHeight - 200;
 
             //Apply friction to the velocity
             if (OnGround)
@@ -227,14 +251,16 @@ namespace The_Alchemist
                 //set the animation to running
                 if (Math.Abs(velocity.X) - 0.02f > 0)
                 {
-                    animation = runAnimation;
-                    animation.Play();
+                    this.characterAnimator.animation = runAnimation;
+                    this.characterAnimator.spriteSheet = runSpriteSheet;
                 }
                 //Otherwise set it to idle
                 else
                 {
-                    animation = idleAnimation;
-                    animation.Play();
+                    this.characterAnimator.animation = idleAnimation;
+                    this.characterAnimator.spriteSheet = idleSpriteSheet;
+                    //animation = idleAnimation;
+                    //animation.Play();
                 }
                 onGround = true;             //Indicate it
                 velocity.Y = 0.0f;
@@ -247,7 +273,6 @@ namespace The_Alchemist
 
             //Round the velocity so bounds can be correctly updated
             position = new Vector2((float)Math.Round(position.X), (float)Math.Round(position.Y));
-
         }
 
         private float Jump(float velocityY, GameTime gameTime)
@@ -260,9 +285,10 @@ namespace The_Alchemist
                 {
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;   //Increase the jump time
 
-                    animation = jumpAnimation;          //Set the current animation to jumping      
-                    animation.Play();                   //Play the newly selected animation
-                    wplayer.controls.play();
+                    this.characterAnimator.animation = jumpAnimation;
+                    this.characterAnimator.spriteSheet = jumpSpriteSheet;
+                    //animation = jumpAnimation;          //Set the current animation to jumping      
+                    //animation.Play();                   //Play the newly selected animation
                 }
 
                 //If the descent hasn't started
@@ -286,6 +312,7 @@ namespace The_Alchemist
         }
 
         //Detect possible collisions
+        //Detect possible collisions
         private void Collide()
         {
             //onGround = false;               //It'll be set to true if player is on ground
@@ -298,7 +325,7 @@ namespace The_Alchemist
                 Rectangle platformBounds = level.Platforms[level.Part, k].Bounds;
 
                 //If the player is above the current platform
-                if (Bounds.Left >= platformBounds.Left && Bounds.Left <= platformBounds.Right)
+                if ((Bounds.Left + width/2) >= platformBounds.Left && (Bounds.Left + width / 2) <= platformBounds.Right)
                 {
                     //If the player bounds is intersecting with the platform bounds
                     if (Bounds.Intersects(platformBounds))
@@ -315,7 +342,7 @@ namespace The_Alchemist
                             }
                         }
                         //If platform is broken - player can get onto it from the bottom
-                        else 
+                        else
                         {
                             //If the player approaches the platform from the top
                             if (position.Y < platformBounds.Top + 10)
@@ -329,13 +356,13 @@ namespace The_Alchemist
 
                         }
 
-                        
+
                     }
                 }
 
                 //If player is on the floor 
                 //if (Bounds.Bottom > floor)
-                   //onGround = true;             //Indicate it
+                //onGround = true;             //Indicate it
             }
 
             //This is for testing purposes so our sprite doesn't fall through the floor
@@ -351,8 +378,6 @@ namespace The_Alchemist
             if (level.Index == 2 && level.NumberOfEnemies[level.Part] > 0)
             {
                 if (Bounds.Intersects(level.Enemies[level.Part, 0].Bounds))
-                    return true;
-                else if (Bounds.Top > level.gameHeight)
                     return true;
                 else
                     return false;
@@ -376,6 +401,7 @@ namespace The_Alchemist
             else
                 return false;
         }
+
         
     }
 }

@@ -48,6 +48,8 @@
       <DependentUpon>ALCHEMISTDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Animation.cs" />
+    <Compile Include="Animator.cs" />
+    <Compile Include="AnimatorManager.cs" />
     <Compile Include="characterSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +58,9 @@
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="ClockTimer.cs" />
+    <Compile Include="Content\air_idle.cs" />
+    <Compile Include="Content\air_jump.cs" />
+    <Compile Include="Content\air_run.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="frmHighscores.cs">
       <SubType>Form</SubType>
