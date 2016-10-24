@@ -22,6 +22,11 @@ namespace The_Alchemist
             {
                 this.BackgroundImage = Properties.Resources.mainMenu1;
             }
+
+            if (Globals.loggedInUser == null)                                                                                              // If user is not logged in disable my scores report
+            {
+                btnMyScores.Enabled = false;
+            }
         }
 
         private void frmHighscores_Load(object sender, EventArgs e)
@@ -223,6 +228,12 @@ namespace The_Alchemist
         {
             frmReport f = new frmReport();
             f.ShowDialog();
+        }
+
+        private void btnMyScores_Click(object sender, EventArgs e)
+        {
+            frmReportUser frm = new frmReportUser();
+            frm.ShowDialog();
         }
     }
 }
