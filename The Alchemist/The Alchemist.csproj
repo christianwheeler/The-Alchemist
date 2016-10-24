@@ -86,6 +86,12 @@
     <Compile Include="frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportUser.Designer.cs">
+      <DependentUpon>frmReportUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStartGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptHighScores.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptUser1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUser.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TexturePackerLoader\SpriteFrame.cs" />
@@ -195,6 +207,9 @@
     <EmbeddedResource Include="frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportUser.resx">
+      <DependentUpon>frmReportUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStartGame.resx">
       <DependentUpon>frmStartGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +220,10 @@
     <EmbeddedResource Include="rptHighScores.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptHighScores.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptUser.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptUser1.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿namespace The_Alchemist
 {
-    partial class frmReport
+    partial class frmReportUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportUser));
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.rptHighScores1 = new The_Alchemist.rptHighScores();
+            this.rptUser1 = new The_Alchemist.rptUser();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -41,19 +41,20 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.rptHighScores1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1071, 694);
+            this.crystalReportViewer1.ReportSource = this.rptUser1;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1072, 655);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // frmReport
+            // frmReportUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 694);
+            this.ClientSize = new System.Drawing.Size(1072, 655);
             this.Controls.Add(this.crystalReportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmReport";
-            this.Text = "Report - High Scores";
+            this.Name = "frmReportUser";
+            this.Text = "Report - User";
+            this.Load += new System.EventHandler(this.frmReportUser_Load);
             this.ResumeLayout(false);
 
         }
@@ -61,6 +62,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private rptHighScores rptHighScores1;
+        private rptUser rptUser1;
     }
 }
