@@ -146,6 +146,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\air_idle.txt" />
+    <Content Include="Content\air_jump.txt" />
+    <Content Include="Content\air_run.txt" />
     <Content Include="user-settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
