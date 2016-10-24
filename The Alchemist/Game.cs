@@ -52,7 +52,6 @@ namespace The_Alchemist
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferHeight = 576;
             graphics.PreferredBackBufferWidth = 1024;
-
         }
 
         //Load services and non-graphic content
@@ -199,7 +198,7 @@ namespace The_Alchemist
 
             else if (gameState == GameState.Playing)
             {
-                level.Draw(gameTime, spriteBatch);  
+                level.Draw(gameTime, spriteBatch); 
             }      
     
             if (ded)

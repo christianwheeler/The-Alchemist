@@ -26,7 +26,6 @@ namespace The_Alchemist
         private bool gameOver = false;
 
         
-
         private Player player;
         private OldMan oldman;
         private Texture2D om;
@@ -89,18 +88,23 @@ namespace The_Alchemist
             get { return gameOver; }
         }
 
+        private GraphicsDevice g;
+
         public Level(IServiceProvider serviceProvider, GraphicsDeviceManager gfx, int levelIndex)
         {
             // Create a new content manager to load content used just by this level.
             content = new ContentManager(serviceProvider, "Content");
             //index = levelIndex;
+            g = gfx.GraphicsDevice;
 
             gameHeight = gfx.GraphicsDevice.Viewport.Height;
             gameWidth = gfx.GraphicsDevice.Viewport.Width;
 
             LoadPlatforms();
             LoadEnemies();
-            LoadPlayer();
+            //LoadPlayer();
+
+            player = new Player(340, gameHeight - 530, this, serviceProvider, gfx);
         }
 
         public void LoadPlatforms()
@@ -276,11 +280,12 @@ namespace The_Alchemist
             }
         }
 
-        public void LoadPlayer()
+        /*
+         public void LoadPlayer()
         {
-            Texture2D idle = Content.Load<Texture2D>("Player/Alchemist Lead Idle");
-            Texture2D jump = Content.Load<Texture2D>("Player/Alchemist Lead Jump");
-            Texture2D run = Content.Load<Texture2D>("Player/Alchemist Lead Sheet");
+            Texture2D idle = Content.Load<Texture2D>("air_run");
+            Texture2D jump = Content.Load<Texture2D>("air_run");
+            Texture2D run = Content.Load<Texture2D>("air_run");
             
             //Player creation is super simple for now. We just pass the textures it needs
             //pass the position coordinates and pass the level so that the player can access
@@ -314,6 +319,8 @@ namespace The_Alchemist
             }           
 
         }
+             */
+
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -321,7 +328,8 @@ namespace The_Alchemist
             
             for (int i = 0; i < numberOfPlatforms[part]; i++)
             {
-                platforms[part, i].Draw(spriteBatch);      
+                platforms[part, i].Draw(spriteBatch);
+                //platforms[part, i].Texture.CreateBorder(5, Color.Blue);
             }
             if (levelIndex == 1 && part == 0)
             {
@@ -382,7 +390,7 @@ namespace The_Alchemist
                     Dispose();
                     LoadPlatforms();
                     LoadEnemies();
-                    LoadPlayer();
+                    //LoadPlayer();
                 }
                 else
                     part++;

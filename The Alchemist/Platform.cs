@@ -19,7 +19,7 @@ namespace The_Alchemist
     class Platform
     {
         private Texture2D texture;              //Platform Image
-        public Collides collision;     //Platform Collision
+        public Collides collision;              //Platform Collision
         private Size size;                      //Platform Size
         private int x;                          //Platform X Coordinate
         private int y;                          //Platform Y Coordinate
@@ -31,6 +31,16 @@ namespace The_Alchemist
         public Texture2D Texture
         {
             get { return texture; }
+        }
+
+        public int Height
+        {
+            get { return (int) Math.Round(height * 0.6f); }
+        }
+
+        public int Width
+        {
+            get { return (int) Math.Round(width * 0.6f); }
         }
 
         public int X
