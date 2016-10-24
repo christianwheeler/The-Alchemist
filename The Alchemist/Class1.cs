@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace The_Alchemist
 {
+    // What -Nicaedin
     class OldMan
     {
         private SpriteFont font;
@@ -66,9 +67,9 @@ namespace The_Alchemist
             firstClock = new ClockTimer();
             secondClock = new ClockTimer();
             thirdClock = new ClockTimer();
-            firstClock.Start(5);
+            firstClock.Start(2);
             secondClock.Start(5);
-            thirdClock.Start(17);
+            thirdClock.Start(15);
           //  fade = new SpriteBatch(graphics);
         }
 
@@ -87,8 +88,9 @@ namespace The_Alchemist
             else if(firstClock.checkTime(gameTime)){
             spriteBatch.Draw(oldman,source, new Color(255, 255, 255, (byte)MathHelper.Clamp(AlphaValue, 0, 255)));
             spriteBatch.DrawString(font, "The only meaning to life is completing the Great Work.", new Vector2(position.X - 145, position.Y - 60), new Color(201, 11, 11, (byte)MathHelper.Clamp(AlphaValue, 0, 255)));
-            spriteBatch.DrawString(font, "Follow the light young Alchemist!", new Vector2(100, 100), new Color(255, 255, 255, (byte)MathHelper.Clamp(AlphaValue, 0, 255)));
-            
+            spriteBatch.DrawString(font, "Follow the light young Alchemist!", new Vector2(100, 200), new Color(0, 0, 0, (byte)MathHelper.Clamp(AlphaValue, 0, 255)));
+            spriteBatch.DrawString(font, "Use the directional keys to move!", new Vector2(100, 50), new Color(255, 255, 255, (byte)MathHelper.Clamp(AlphaValue, 0, 255)));
+            spriteBatch.DrawString(font, "Press up to jump, collect the orbs to move on!", new Vector2(100, 75), new Color(255, 255, 255, (byte)MathHelper.Clamp(AlphaValue, 0, 255)));
             }
           // fade.End();
 
