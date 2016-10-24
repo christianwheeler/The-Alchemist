@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(characterSelection));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(97, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 43);
@@ -46,6 +48,7 @@
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(97, 118);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 43);
@@ -56,6 +59,7 @@
             // 
             // button3
             // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(97, 205);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(153, 45);
@@ -66,6 +70,7 @@
             // 
             // button4
             // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(97, 300);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(153, 50);
@@ -83,8 +88,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "characterSelection";
-            this.Text = "characterSelection";
+            this.Text = "Select a character";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.characterSelection_FormClosed);
             this.Load += new System.EventHandler(this.characterSelection_Load);
             this.ResumeLayout(false);
 

@@ -44,5 +44,10 @@ namespace The_Alchemist
                 btnRegister.Text = "Play again";
             }
         }
+
+        private void frmStartGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

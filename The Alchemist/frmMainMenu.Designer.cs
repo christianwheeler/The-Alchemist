@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.btnRegister = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -170,8 +171,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMainMenu";
-            this.Text = "frmMainMenu";
+            this.Text = "The Alchemist - Menu";
             this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

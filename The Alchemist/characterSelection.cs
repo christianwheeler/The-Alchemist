@@ -11,6 +11,8 @@ namespace The_Alchemist
 {
     public partial class characterSelection : Form
     {
+        frmStartGame frm = new frmStartGame(false);  // Preload the form so long
+
         public characterSelection()
         {
             InitializeComponent();
@@ -33,46 +35,65 @@ namespace The_Alchemist
         private void button1_Click(object sender, EventArgs e)
         {
             Globals.userSettings.UserCharacterType = CharacterType.Earth;
-            Globals.userSettings.writeSettings();
             this.Hide();
-
-            frmStartGame f = new frmStartGame(false);
-            f.ShowDialog();
+            frm.ShowDialog();
         }
 
         //Fire
         private void button2_Click(object sender, EventArgs e)
         {
             Globals.userSettings.UserCharacterType = CharacterType.Fire;
-            Globals.userSettings.writeSettings();
             this.Hide();
-            frmStartGame f = new frmStartGame(false);
-            f.ShowDialog();
+            frm.ShowDialog();
         }
 
         //Water
         private void button3_Click(object sender, EventArgs e)
         {
             Globals.userSettings.UserCharacterType = CharacterType.Water;
-            Globals.userSettings.writeSettings();
             this.Hide();
-            frmStartGame f = new frmStartGame(false);
-            f.ShowDialog();
+            frm.ShowDialog();
         }
 
         //Wind
         private void button4_Click(object sender, EventArgs e)
         {
             Globals.userSettings.UserCharacterType = CharacterType.Wind;
-            Globals.userSettings.writeSettings();
             this.Hide();
-            frmStartGame f = new frmStartGame(false);
-            f.ShowDialog();
+            frm.ShowDialog();
         }
 
         private void characterSelection_Load(object sender, EventArgs e)
         {
+            // Highlight the button that representst the current selection in user settings
+            if (Globals.userSettings.UserCharacterType == CharacterType.Earth)
+            {
+                button1.FlatAppearance.BorderColor = Color.Green;
+                button1.FlatAppearance.BorderSize = 2;
+            }
 
+            else if (Globals.userSettings.UserCharacterType == CharacterType.Fire)
+            {
+                button2.FlatAppearance.BorderColor = Color.Green;
+                button2.FlatAppearance.BorderSize = 2;
+            }
+
+            else if (Globals.userSettings.UserCharacterType == CharacterType.Water)
+            {
+                button3.FlatAppearance.BorderColor = Color.Green;
+                button3.FlatAppearance.BorderSize = 2;
+            }
+
+            else if (Globals.userSettings.UserCharacterType == CharacterType.Wind)
+            {
+                button4.FlatAppearance.BorderColor = Color.Green;
+                button4.FlatAppearance.BorderSize = 2;
+            }
+        }
+
+        private void characterSelection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

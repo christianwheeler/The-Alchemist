@@ -45,9 +45,9 @@ namespace The_Alchemist
                     User loggedInUser = new User(reader["PLAYER_NAME"].ToString(), reader["PLAYER_PASSWORD"].ToString(), hs);
                     Globals.loggedInUser = loggedInUser;
 
-                    this.Hide();
                     //Jump to character selection screen
                     characterSelection cs = new characterSelection();
+                    this.Hide();
                     cs.ShowDialog();
                     
                 }

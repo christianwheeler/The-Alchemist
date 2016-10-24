@@ -9,11 +9,30 @@ namespace The_Alchemist
     /*
      * 
      *  Responsible for reading and wrtiting to user-settings.xml.
-     *  As a result it will get and set the various user settings
+     *  As a result it will get and set the various user settings.
+     *  
+     *  ~~~~~~~~~~~~~ Implemented as a Singleton ~~~~~~~~~~~~~~
      *  
      */
     public class UserSettings
     {
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *
+         *                          Singleton                              *
+         * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+        private static UserSettings mSettings;                                                                                  // Only allow one instance
+        
+        public static UserSettings Settings
+        {
+            get
+            {
+                if (mSettings == null)
+                {
+                    mSettings = new UserSettings();
+                }
+
+                return mSettings;
+            }
+        }
         /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *
          *                         Attributes                              *
          * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -32,7 +51,7 @@ namespace The_Alchemist
         /*
          * Initialises object by reading from the user settings xml file
          */
-        public UserSettings()
+        private UserSettings()
         {
             readSettings();
         }
@@ -51,14 +70,26 @@ namespace The_Alchemist
          */
         private void readSettings()
         {
-            XmlDocument userSettingsDocument = new XmlDocument();                                                               // Create new xml document object
-            userSettingsDocument.Load(userSettingsFilename);                                                                    // Load the document based on userSettingsFilename string
+            try
+            {
+                XmlDocument userSettingsDocument = new XmlDocument();                                                               // Create new xml document object
+                userSettingsDocument.Load(userSettingsFilename);                                                                    // Load the document based on userSettingsFilename string
 
-            Username = userSettingsDocument.SelectSingleNode("user-settings/username").InnerText;
-            UserCharacterType =  getCharacterType(userSettingsDocument.SelectSingleNode("user-settings/character").InnerText);
-            UserTheme = getTheme(userSettingsDocument.SelectSingleNode("user-settings/theme").InnerText);
-            CurrentLevel = getLevel(userSettingsDocument.SelectSingleNode("user-settings/current-level").InnerText);
-            HighestLevel = getLevel(userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText);
+                Username = userSettingsDocument.SelectSingleNode("user-settings/username").InnerText;
+                UserCharacterType = getCharacterType(userSettingsDocument.SelectSingleNode("user-settings/character").InnerText);
+                UserTheme = getTheme(userSettingsDocument.SelectSingleNode("user-settings/theme").InnerText);
+                CurrentLevel = getLevel(userSettingsDocument.SelectSingleNode("user-settings/current-level").InnerText);
+                HighestLevel = getLevel(userSettingsDocument.SelectSingleNode("user-settings/highest-level").InnerText);
+            }
+
+            catch (Exception)                                                                                                       // If something goes wrong fail silently and init defaults
+            {
+                Username = "User";
+                UserCharacterType = CharacterType.Wind;
+                UserTheme = Theme.Ice;
+                CurrentLevel = 1;
+                HighestLevel = 1;
+            }
 
         }
 

@@ -136,7 +136,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="user-settings.xml" />
+    <Content Include="user-settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="ALCHEMISTDataSet.xsc">
       <DependentUpon>ALCHEMISTDataSet.xsd</DependentUpon>
     </None>

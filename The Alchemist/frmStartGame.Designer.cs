@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStartGame));
             this.btnRegister = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHighScores = new System.Windows.Forms.Button();
@@ -90,8 +91,10 @@
             this.Controls.Add(this.btnHighScores);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmStartGame";
-            this.Text = "frmStartGame";
+            this.Text = "The Alchemist";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStartGame_FormClosing);
             this.Load += new System.EventHandler(this.frmStartGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

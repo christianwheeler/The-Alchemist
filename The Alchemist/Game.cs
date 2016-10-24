@@ -142,7 +142,13 @@ namespace The_Alchemist
         protected override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
-                Exit();
+            {
+                var confirm = MessageBox.Show("Are you sure you wish to quit?", "Click yes to quit", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
 
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
