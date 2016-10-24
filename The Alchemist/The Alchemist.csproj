@@ -112,6 +112,10 @@
       <DependentUpon>rptHighScores.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TexturePackerLoader\SpriteFrame.cs" />
+    <Compile Include="TexturePackerLoader\SpriteRender.cs" />
+    <Compile Include="TexturePackerLoader\SpriteSheet.cs" />
+    <Compile Include="TexturePackerLoader\SpriteSheetLoader.cs" />
     <Compile Include="Theme.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserList.cs" />
@@ -153,6 +157,7 @@
     <None Include="Content\Backgrounds\mainMenu.jpg" />
     <None Include="Content\Backgrounds\mainMenu1.jpg" />
     <Content Include="Icon.ico" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
