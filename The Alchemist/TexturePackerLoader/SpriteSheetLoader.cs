@@ -10,6 +10,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+    using System.Globalization;
 
     public class SpriteSheetLoader
     {
@@ -76,8 +77,8 @@
                     int.Parse(cols[6]),
                     int.Parse(cols[7]));
                 var pivotPoint = new Vector2(
-                    float.Parse(cols[8]),
-                    float.Parse(cols[9]));
+                    float.Parse(cols[8], CultureInfo.InvariantCulture.NumberFormat),
+                    float.Parse(cols[9], CultureInfo.InvariantCulture.NumberFormat));
                 var sprite = new SpriteFrame(texture, sourceRectangle, size, pivotPoint, isRotated);
 
                 sheet.Add(name, sprite);
