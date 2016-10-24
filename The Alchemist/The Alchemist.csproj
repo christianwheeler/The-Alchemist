@@ -125,6 +125,7 @@
     <Compile Include="User.cs" />
     <Compile Include="UserList.cs" />
     <Compile Include="UserSettings.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />

@@ -100,7 +100,8 @@ namespace The_Alchemist
 
             LoadPlatforms();
             LoadEnemies();
-            LoadPlayer();
+            //LoadPlayer();
+            player = new Player(340, gameHeight - 530, this, serviceProvider, gfx);
         }
 
         public void LoadPlatforms()
@@ -333,7 +334,7 @@ namespace The_Alchemist
             }
         }
 
-        public void LoadPlayer()
+       /* public void LoadPlayer()
         {
             Texture2D idle = Content.Load<Texture2D>("Player/Alchemist Lead Idle");
             Texture2D jump = Content.Load<Texture2D>("Player/Alchemist Lead Jump");
@@ -385,7 +386,7 @@ namespace The_Alchemist
                 }
             }
 
-        }
+        }*/
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -456,7 +457,7 @@ namespace The_Alchemist
                         Dispose();
                         LoadPlatforms();
                         LoadEnemies();
-                        LoadPlayer();
+                        //LoadPlayer();
                     }
                     else
                         part++;
@@ -472,7 +473,7 @@ namespace The_Alchemist
                         Dispose();
                         LoadPlatforms();
                         LoadEnemies();
-                        LoadPlayer();
+                        //LoadPlayer();
                     }
                     else
                         part++;

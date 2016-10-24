@@ -91,7 +91,7 @@ namespace The_Alchemist
             this.idleSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
             this.idleSpriteRender = new SpriteRender(this.idleSpriteBatch);
             this.idleSpriteLoader = new SpriteSheetLoader(content);
-            this.idleSpriteSheet = idleSpriteLoader.Load("air_idle");
+            this.idleSpriteSheet = idleSpriteLoader.Load("Player/air_idle");
 
             var idleSprite = TextureDefinitions.air_idle.sprite;
             this.idleAnimation = new Animator(new Vector2(0, 0), idleTime, SpriteEffects.None, idleSprite);
@@ -99,7 +99,7 @@ namespace The_Alchemist
             this.runSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
             this.runSpriteRender = new SpriteRender(this.runSpriteBatch);
             this.runSpriteLoader = new SpriteSheetLoader(content);
-            this.runSpriteSheet = runSpriteLoader.Load("air_run");
+            this.runSpriteSheet = runSpriteLoader.Load("Player/air_run");
 
             var runSprite = TextureDefinitions.air_run.sprite;
             this.runAnimation = new Animator(new Vector2(0, 0), runTime, SpriteEffects.None, runSprite);
@@ -107,7 +107,7 @@ namespace The_Alchemist
             this.jumpSpriteBatch = new SpriteBatch(graphics.GraphicsDevice);
             this.jumpSpriteRender = new SpriteRender(this.jumpSpriteBatch);
             this.jumpSpriteLoader = new SpriteSheetLoader(content);
-            this.jumpSpriteSheet = jumpSpriteLoader.Load("air_jump");
+            this.jumpSpriteSheet = jumpSpriteLoader.Load("Player/air_jump");
 
             var jumpSprite = TextureDefinitions.air_jump.sprite;
             this.jumpAnimation = new Animator(new Vector2(0, 0), jumpTim, SpriteEffects.None, jumpSprite);
