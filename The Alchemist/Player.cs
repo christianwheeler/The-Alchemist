@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TexturePackerLoader;
 using Microsoft.Xna.Framework.Content;
+using WMPLib;
 
 namespace The_Alchemist
 {
@@ -69,6 +70,7 @@ namespace The_Alchemist
         private SpriteSheetLoader jumpSpriteLoader;
         private Animator jumpAnimation;
         private readonly TimeSpan jumpTim = TimeSpan.FromSeconds(1f / 15f);
+        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         public Player(int xC, int yC, Level l, IServiceProvider service, GraphicsDeviceManager g)
         {
@@ -113,6 +115,8 @@ namespace The_Alchemist
             this.jumpAnimation = new Animator(new Vector2(0, 0), jumpTim, SpriteEffects.None, jumpSprite);
 
             this.characterAnimator = new AnimatorManager(idleSpriteSheet, position, idleAnimation); ;
+
+            wplayer.URL = "jump.wav";
         }
 
         //Calculates and returns the player's current bounds for collision purposes
@@ -289,6 +293,7 @@ namespace The_Alchemist
                     this.characterAnimator.spriteSheet = jumpSpriteSheet;
                     //animation = jumpAnimation;          //Set the current animation to jumping      
                     //animation.Play();                   //Play the newly selected animation
+                    wplayer.controls.play();
                 }
 
                 //If the descent hasn't started

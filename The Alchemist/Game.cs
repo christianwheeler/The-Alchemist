@@ -260,32 +260,40 @@ namespace The_Alchemist
                 reader.Close();
                 conn.Close();
 
-                if (highScore)
+                // Update individual player highest level
+                SqlCommand cmdd = new SqlCommand("SELECT HIGHEST_LEVEL FROM PLAYER WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
+                cmdd.Connection = conn;
+                conn.Open();    // Open connection
+                reader = cmdd.ExecuteReader();   // Read all data into the reader
+
+                if (reader.Read())
                 {
-                    player.SoundLocation = "highScore.wav";
-                    player.Play();
-                    try
+                    if (level.Index > Convert.ToInt32(reader["HIGHEST_LEVEL"]))
                     {
+                        reader.Close();
                         // Update high score in database
                         SqlCommand cmd2 = new SqlCommand("UPDATE PLAYER SET HIGHEST_LEVEL = '" + level.Index + "' WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
                         cmd2.Connection = conn;
-                        conn.Open();    // Open connection
                         int rows = cmd2.ExecuteNonQuery();
-                        conn.Close();
 
                         // Update high score level date 
                         SqlCommand cmd3 = new SqlCommand("UPDATE PLAYER SET HIGHEST_LEVEL_DATE = '" + DateTime.Now + "' WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
                         cmd3.Connection = conn;
-                        conn.Open();    // Open connection
                         int rows2 = cmd3.ExecuteNonQuery();
-                        conn.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+                reader.Close();
+                conn.Close();
 
-                        MessageBox.Show("Congratulations! New High Score!");
-                    }
-                    catch (Exception err)
-                    {
-                        MessageBox.Show(err.Message);
-                    }
+                if (highScore)
+                {
+                    player.SoundLocation = "highScore.wav";
+                    player.Play();
+                    MessageBox.Show("Congratulations! New High Score!");
                 }
             }
             catch (Exception err)
