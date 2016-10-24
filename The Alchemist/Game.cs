@@ -256,6 +256,8 @@ namespace The_Alchemist
 
                 if (highScore)
                 {
+                    player.SoundLocation = "highScore.wav";
+                    player.Play();
                     try
                     {
                         // Update high score in database

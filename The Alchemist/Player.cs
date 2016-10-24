@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using WMPLib;
 
 namespace The_Alchemist
 {
@@ -46,6 +47,7 @@ namespace The_Alchemist
         private bool isAlive;                               //Flag to check if Player is alive
         private Vector2 velocity;                           //Velocity when player moves
         float floor;                                        //Current floor position 
+        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         public Player(Texture2D rT, Texture2D iT, Texture2D jT, int xC, int yC, Level l)
         {
@@ -77,6 +79,7 @@ namespace The_Alchemist
             
             jumped = false;
             jumpTime = 0.0f;
+            wplayer.URL = "jump.wav";
         }
 
         //Calculates and returns the player's current bounds for collision purposes
@@ -259,6 +262,7 @@ namespace The_Alchemist
 
                     animation = jumpAnimation;          //Set the current animation to jumping      
                     animation.Play();                   //Play the newly selected animation
+                    wplayer.controls.play();
                 }
 
                 //If the descent hasn't started
