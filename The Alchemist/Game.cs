@@ -45,7 +45,6 @@ namespace The_Alchemist
         private GameState gameState;
         private bool loadGame;
         private bool ded = false;
-        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
         public AlchemistGame()
         {
@@ -73,8 +72,8 @@ namespace The_Alchemist
             ded = false;
 
             // Play music
-            player.SoundLocation = "backgroundMusic.wav";
-            player.PlayLooping();
+            Globals.player.SoundLocation = "backgroundMusic.wav";
+            Globals.player.PlayLooping();
 
             base.Initialize();  //Initializes related components
         }
@@ -185,7 +184,7 @@ namespace The_Alchemist
                 
                 if (level.GameOver)
                 {
-                    player.Stop();
+                    Globals.player.Stop();
                     gameState = GameState.StartMenu;
                     IsMouseVisible = true;
                     ded = true;
@@ -224,7 +223,7 @@ namespace The_Alchemist
             if (ded)
             {
                 this.Exit();
-                frmStartGame frm = new frmStartGame(true);
+                frmStartGame frm = new frmStartGame(true, false);
                 frm.ShowDialog();
                 
             }
@@ -291,8 +290,8 @@ namespace The_Alchemist
 
                 if (highScore)
                 {
-                    player.SoundLocation = "highScore.wav";
-                    player.Play();
+                    Globals.player.SoundLocation = "highScore.wav";
+                    Globals.player.Play();
                     MessageBox.Show("Congratulations! New High Score!");
                 }
             }

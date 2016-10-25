@@ -11,7 +11,7 @@ namespace The_Alchemist
 {
     public partial class characterSelection : Form
     {
-        frmStartGame frm = new frmStartGame(false);  // Preload the form so long
+        frmStartGame frm = new frmStartGame(false, false);  // Preload the form so long
 
         public characterSelection()
         {
