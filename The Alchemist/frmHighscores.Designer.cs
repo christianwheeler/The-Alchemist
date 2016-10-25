@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHighscores));
             this.dgvHighscores = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMyScores = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnReport = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.btnSortName = new System.Windows.Forms.Button();
             this.btnSortDate = new System.Windows.Forms.Button();
             this.btnSortHighestLevel = new System.Windows.Forms.Button();
-            this.btnMyScores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHighscores)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +102,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(947, 578);
             this.panel1.TabIndex = 1;
+            // 
+            // btnMyScores
+            // 
+            this.btnMyScores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMyScores.Location = new System.Drawing.Point(680, 496);
+            this.btnMyScores.Name = "btnMyScores";
+            this.btnMyScores.Size = new System.Drawing.Size(258, 52);
+            this.btnMyScores.TabIndex = 8;
+            this.btnMyScores.Text = "My Scores";
+            this.btnMyScores.UseVisualStyleBackColor = true;
+            this.btnMyScores.Click += new System.EventHandler(this.btnMyScores_Click);
             // 
             // label3
             // 
@@ -181,22 +192,12 @@
             this.btnSortHighestLevel.UseVisualStyleBackColor = true;
             this.btnSortHighestLevel.Click += new System.EventHandler(this.btnSortHighestLevel_Click);
             // 
-            // btnMyScores
-            // 
-            this.btnMyScores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMyScores.Location = new System.Drawing.Point(680, 496);
-            this.btnMyScores.Name = "btnMyScores";
-            this.btnMyScores.Size = new System.Drawing.Size(258, 52);
-            this.btnMyScores.TabIndex = 8;
-            this.btnMyScores.Text = "My Scores";
-            this.btnMyScores.UseVisualStyleBackColor = true;
-            this.btnMyScores.Click += new System.EventHandler(this.btnMyScores_Click);
-            // 
             // frmHighscores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::The_Alchemist.Properties.Resources.mainMenu;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1034, 651);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

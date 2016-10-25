@@ -47,7 +47,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ALCHEMISTDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Animation.cs" />
     <Compile Include="Animator.cs" />
     <Compile Include="AnimatorManager.cs" />
     <Compile Include="characterSelection.cs">
@@ -140,6 +139,9 @@
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AnimationLibrary">
+      <HintPath>..\..\..\..\Google Drive\2016 Modules\Semester 2\INF 272\INF 272 Project\Libraries (Nicolai)\AnimationLibrary\AnimationLibrary\bin\Debug\AnimationLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />

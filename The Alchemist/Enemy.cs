@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using AnimationLibrary;
 
 namespace The_Alchemist
 {
@@ -16,7 +17,7 @@ namespace The_Alchemist
     {
         Shadow = 0,
         Demon = 1
-     }
+    }
 
     class Enemy
     {
