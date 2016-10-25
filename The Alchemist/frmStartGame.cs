@@ -12,7 +12,8 @@ namespace The_Alchemist
     public partial class frmStartGame : Form
     {
         private bool ded;
-        public frmStartGame(bool d)  // 0 = Start, 1 = Died
+        private bool won;
+        public frmStartGame(bool d, bool won)  // 0 = Start, 1 = Died
         {
             InitializeComponent();
 
@@ -21,13 +22,14 @@ namespace The_Alchemist
                 this.BackgroundImage = Properties.Resources.mainMenu1;
             }
             this.ded = d;
+            this.won = won;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (var game = new AlchemistGame())
-                game.Run();
+            using ( Globals.game = new AlchemistGame())
+                Globals.game.Run();
         }
 
         private void btnHighScores_Click(object sender, EventArgs e)
@@ -42,6 +44,11 @@ namespace The_Alchemist
             {
                 lblDed.Visible = true;
                 btnRegister.Text = "Play again";
+            }
+            else if (won)
+            {
+                lblDed.Visible = true;
+                lblDed.Text = "You beat the game!!!";
             }
         }
 

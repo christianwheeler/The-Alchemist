@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace The_Alchemist
 {
@@ -24,8 +26,9 @@ namespace The_Alchemist
         private Rectangle[] exits = new Rectangle[3];               //Exit for each part
 
         private bool gameOver = false;
+        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
 
-        
+
 
         private Player player;
         private OldMan oldman;
@@ -106,7 +109,16 @@ namespace The_Alchemist
 
         public void LoadPlatforms()
         {
-            //Load the appropriate background
+            // Exit game if level == 4
+            if (levelIndex == 4)
+            {
+                Globals.player.Stop();
+                updateHighScore();
+                Globals.game.Exit();
+                frmStartGame f = new frmStartGame(false, true);
+                f.ShowDialog();
+            }
+            // Load the appropriate background
             switch (levelIndex)
             {
                 case 1 :
@@ -486,7 +498,74 @@ namespace The_Alchemist
             Content.Unload();
         }
 
+        private void updateHighScore()
+        {
+            SqlConnection conn = new SqlConnection(Globals.DBConn);
+            SqlDataReader reader;
+            bool highScore = false;
 
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT MAX(HIGHEST_LEVEL) AS 'HIGHEST_LEVEL' FROM PLAYER");
+                cmd.Connection = conn;
+                conn.Open();    // Open connection
+                reader = cmd.ExecuteReader();   // Read all data into the reader
+
+                if (reader.Read())
+                {
+                    if (levelIndex > Convert.ToInt32(reader["HIGHEST_LEVEL"]))
+                    {
+                        highScore = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+                reader.Close();
+                conn.Close();
+
+                // Update individual player highest level
+                SqlCommand cmdd = new SqlCommand("SELECT HIGHEST_LEVEL FROM PLAYER WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
+                cmdd.Connection = conn;
+                conn.Open();    // Open connection
+                reader = cmdd.ExecuteReader();   // Read all data into the reader
+
+                if (reader.Read())
+                {
+                    if (levelIndex > Convert.ToInt32(reader["HIGHEST_LEVEL"]))
+                    {
+                        reader.Close();
+                        // Update high score in database
+                        SqlCommand cmd2 = new SqlCommand("UPDATE PLAYER SET HIGHEST_LEVEL = '" + levelIndex + "' WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
+                        cmd2.Connection = conn;
+                        int rows = cmd2.ExecuteNonQuery();
+
+                        // Update high score level date 
+                        SqlCommand cmd3 = new SqlCommand("UPDATE PLAYER SET HIGHEST_LEVEL_DATE = '" + DateTime.Now + "' WHERE PLAYER_NAME = '" + Globals.loggedInUser.UserName + "'");
+                        cmd3.Connection = conn;
+                        int rows2 = cmd3.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+                reader.Close();
+                conn.Close();
+
+                if (highScore)
+                {
+                    soundPlayer.SoundLocation = "highScore.wav";
+                    soundPlayer.Play();
+                    MessageBox.Show("Congratulations! New High Score!");
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
 
     }
 }
